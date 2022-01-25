@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.gergo225.hydrationapp.ui.home.HomeFragment"
-        android:label="@string/title_today"
+        android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment

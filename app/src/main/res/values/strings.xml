@@ -2,5 +2,5 @@
     <string name="app_name">Hydration App</string>
     <string name="navigation_text_today">Today</string>
     <string name="title_history">History</string>
-    <string name="title_today">Today\'s progress</string>
+    <string name="title_home">Today\'s progress</string>
 </resources>

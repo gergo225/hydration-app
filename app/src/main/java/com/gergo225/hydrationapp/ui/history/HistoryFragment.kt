@@ -1,4 +1,4 @@
-package com.gergo225.hydrationapp.ui.notifications
+package com.gergo225.hydrationapp.ui.history
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.gergo225.hydrationapp.R
-import com.gergo225.hydrationapp.databinding.FragmentNotificationsBinding
+import com.gergo225.hydrationapp.databinding.FragmentHistoryBinding
 
-class NotificationsFragment : Fragment() {
+class HistoryFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
-    private var _binding: FragmentNotificationsBinding? = null
+    private lateinit var historyViewModel: HistoryViewModel
+    private var _binding: FragmentHistoryBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +24,14 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+        historyViewModel =
+            ViewModelProvider(this).get(HistoryViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.textDashboard
+        historyViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

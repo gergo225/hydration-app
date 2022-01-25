@@ -14,5 +14,6 @@
     <dimen name="glass_percentage_font_size">36pt</dimen>
     <dimen name="goal_container_font_size">36pt</dimen>
     <dimen name="daily_hydration_history_font_size">18pt</dimen>
-    <dimen name="toolbar_accent_line_thickness">4sp</dimen>
+    <dimen name="toolbar_accent_line_thickness">2dp</dimen>
+    <dimen name="toolbar_height">64dp</dimen>
 </resources>

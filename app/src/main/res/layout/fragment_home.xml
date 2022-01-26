@@ -1,125 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/leaf_bg"
-    android:backgroundTint="@android:color/darker_gray"
-    android:backgroundTintMode="multiply"
-    tools:context=".ui.home.HomeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/glass_image"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:contentDescription="@string/glass_image_description"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_glass_empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHeight_default="percent"
-        app:layout_constraintHeight_percent="0.35"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/hydration_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:textColor="@color/white"
-        android:textSize="@dimen/body_font_size"
-        app:layout_constraintBottom_toBottomOf="@id/glass_image"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="200 ml" />
-
-    <TextView
-        android:id="@+id/hydration_goal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:textColor="@color/white"
-        android:textSize="@dimen/body_font_size"
-        app:layout_constraintBottom_toTopOf="@id/glass_image"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="of 2000 ml Goal" />
-
-    <TextView
-        android:id="@+id/hydration_percentage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/green"
-        android:textSize="@dimen/glass_percentage_font_size"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/hydration_goal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="20%" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/add_hydration_button_row"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/glass_image">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/leaf_bg"
+        android:backgroundTint="@android:color/darker_gray"
+        android:backgroundTintMode="multiply"
+        tools:context=".ui.home.HomeFragment">
 
-        <Button
-            android:id="@+id/add_hydration_button1"
+        <ImageView
+            android:id="@+id/glass_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:contentDescription="@string/glass_image_description"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_glass_empty"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.35"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/hydration_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/add_hydration_horizontal_margin"
-            android:backgroundTint="@color/green"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:textColor="@color/white"
+            android:textSize="@dimen/body_font_size"
+            app:layout_constraintBottom_toBottomOf="@id/glass_image"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/add_hydration_button2"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             tools:text="200 ml" />
 
-        <Button
-            android:id="@+id/add_hydration_button2"
+        <TextView
+            android:id="@+id/hydration_goal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/green"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/add_hydration_button1"
-            app:layout_constraintRight_toLeftOf="@id/add_hydration_button3"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="400 ml" />
-
-        <Button
-            android:id="@+id/add_hydration_button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/add_hydration_horizontal_margin"
-            android:backgroundTint="@color/green"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/add_hydration_button2"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:textColor="@color/white"
+            android:textSize="@dimen/body_font_size"
+            app:layout_constraintBottom_toTopOf="@id/glass_image"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="500 ml" />
+            tools:text="of 2000 ml Goal" />
+
+        <TextView
+            android:id="@+id/hydration_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:textSize="@dimen/glass_percentage_font_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/hydration_goal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="20%" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/add_hydration_button_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/glass_image">
+
+            <Button
+                android:id="@+id/add_hydration_button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/add_hydration_horizontal_margin"
+                android:backgroundTint="@color/green"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/add_hydration_button2"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="200 ml" />
+
+            <Button
+                android:id="@+id/add_hydration_button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/green"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/add_hydration_button1"
+                app:layout_constraintRight_toLeftOf="@id/add_hydration_button3"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="400 ml" />
+
+            <Button
+                android:id="@+id/add_hydration_button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/add_hydration_horizontal_margin"
+                android:backgroundTint="@color/green"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/add_hydration_button2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="500 ml" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/home_message"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/body_font_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/add_hydration_button_row"
+            app:layout_constraintRight_toRightOf="@id/add_hydration_button_row"
+            app:layout_constraintTop_toBottomOf="@id/add_hydration_button_row" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/home_message"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="@dimen/body_font_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/add_hydration_button_row"
-        app:layout_constraintRight_toRightOf="@id/add_hydration_button_row"
-        app:layout_constraintTop_toBottomOf="@id/add_hydration_button_row" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

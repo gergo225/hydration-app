@@ -5,4 +5,8 @@
     <string name="title_home">Today\'s progress</string>
     <string name="glass_image_description">Outline of a glass</string>
     <string name="home_message">Happy you\'re back to track your healthy habit of staying hydrated.</string>
+
+    <string name="ml_suffix">%d ml</string>
+    <string name="percentage_suffix">%d%%</string>
+    <string name="goal_format">of %d ml Goal</string>
 </resources>

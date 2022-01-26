@@ -5,6 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="homeViewModel"
+            type="com.gergo225.hydrationapp.ui.home.HomeViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@{@string/ml_suffix(homeViewModel.hydrationProgress)}"
             android:textColor="@color/white"
             android:textSize="@dimen/body_font_size"
             app:layout_constraintBottom_toBottomOf="@id/glass_image"
@@ -45,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@{@string/goal_format(homeViewModel.hydrationGoal)}"
             android:textColor="@color/white"
             android:textSize="@dimen/body_font_size"
             app:layout_constraintBottom_toTopOf="@id/glass_image"
@@ -56,6 +64,7 @@
             android:id="@+id/hydration_percentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{@string/percentage_suffix(homeViewModel.hydrationProgressPercentage)}"
             android:textColor="@color/green"
             android:textSize="@dimen/glass_percentage_font_size"
             android:textStyle="bold"
@@ -80,6 +89,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/add_hydration_horizontal_margin"
                 android:backgroundTint="@color/green"
+                android:onClick="@{() -> homeViewModel.addHydration(homeViewModel.addHydrationAmount1)}"
+                android:text="@{@string/ml_suffix(homeViewModel.addHydrationAmount1)}"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -94,6 +105,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/green"
+                android:onClick="@{() -> homeViewModel.addHydration(homeViewModel.addHydrationAmount2)}"
+                android:text="@{@string/ml_suffix(homeViewModel.addHydrationAmount2)}"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -108,6 +121,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/add_hydration_horizontal_margin"
                 android:backgroundTint="@color/green"
+                android:onClick="@{() -> homeViewModel.addHydration(homeViewModel.addHydrationAmount3)}"
+                android:text="@{@string/ml_suffix(homeViewModel.addHydrationAmount3)}"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"

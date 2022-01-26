@@ -3,6 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="toolbar_margin">8dp</dimen>
+    <dimen name="add_hydration_horizontal_margin">8dp</dimen>
 
 
     <!-- Font sizes -->
@@ -10,8 +11,8 @@
     <dimen name="navigation_font_size">11pt</dimen>
     <dimen name="buttons_list_font_size">16pt</dimen>
     <dimen name="legend_font_size">11pt</dimen>
-    <dimen name="body_font_size">14pt</dimen>
-    <dimen name="glass_percentage_font_size">36pt</dimen>
+    <dimen name="body_font_size">16sp</dimen>
+    <dimen name="glass_percentage_font_size">64sp</dimen>
     <dimen name="goal_container_font_size">36pt</dimen>
     <dimen name="daily_hydration_history_font_size">18pt</dimen>
     <dimen name="toolbar_accent_line_thickness">2dp</dimen>

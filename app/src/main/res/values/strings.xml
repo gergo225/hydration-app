@@ -3,4 +3,6 @@
     <string name="navigation_text_today">Today</string>
     <string name="title_history">History</string>
     <string name="title_home">Today\'s progress</string>
+    <string name="glass_image_description">Outline of a glass</string>
+    <string name="home_message">Happy you\'re back to track your healthy habit of staying hydrated.</string>
 </resources>

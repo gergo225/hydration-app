@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.gergo225.hydrationapp.databinding.FragmentHomeBinding
+import com.gergo225.hydrationapp.repository.database.HydrationDatabase
 
 class HomeFragment : Fragment() {
 
@@ -22,8 +23,11 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val application = requireNotNull(this.activity).application
+        val dao = HydrationDatabase.getInstance(application).hydrationDatabaseDao
+        val homeViewModelFactory = HomeViewModelFactory(dao)
         homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this, homeViewModelFactory).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 

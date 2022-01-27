@@ -1,11 +1,9 @@
 package com.gergo225.hydrationapp.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.gergo225.hydrationapp.repository.database.HydrationDatabaseDao
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(val database: HydrationDatabaseDao) : ViewModel() {
 
     private val _addHydrationAmount1 = MutableLiveData<Int>()
     val addHydrationAmount1: LiveData<Int>

@@ -10,14 +10,14 @@ import androidx.room.Update
 interface HydrationDatabaseDao {
 
     @Insert
-    fun insert(hydration: DailyHydration)
+    suspend fun insert(hydration: DailyHydration)
 
     @Update
-    fun update(hydration: DailyHydration)
+    suspend fun update(hydration: DailyHydration)
 
     @Query("SELECT * FROM daily_hydration_table ORDER BY dayId DESC LIMIT 1")
-    fun getToday(): DailyHydration?
+    suspend fun getToday(): DailyHydration?
 
     @Query("SELECT * FROM daily_hydration_table ORDER BY dayId DESC LIMIT 30")
-    fun getLast30(): LiveData<List<DailyHydration>>
+    suspend fun getLast30(): LiveData<List<DailyHydration>>
 }

@@ -18,6 +18,6 @@ interface HydrationDatabaseDao {
     @Query("SELECT * FROM daily_hydration_table ORDER BY dayId DESC LIMIT 1")
     suspend fun getToday(): DailyHydration?
 
-    @Query("SELECT * FROM daily_hydration_table ORDER BY dayId DESC LIMIT 30")
+    @Query("SELECT * FROM daily_hydration_table ORDER BY hydration_date DESC LIMIT 30")
     fun getLast30(): LiveData<List<DailyHydration>>
 }

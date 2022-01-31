@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/leaf_bg"
+        android:backgroundTint="@android:color/darker_gray"
+        android:backgroundTintMode="multiply"
+        tools:context=".ui.update_value.UpdateValueFragment">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/update_value_help_top_margin"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/body_font_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.75"
+            tools:text="Here you can set your hydration goal based on your preferred unit of measurement" />
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edit_text_background"
+            android:hint="@{Integer.toString(@integer/hydration_goal_default)}"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:paddingHorizontal="12dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/update_value_input_font_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".35" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

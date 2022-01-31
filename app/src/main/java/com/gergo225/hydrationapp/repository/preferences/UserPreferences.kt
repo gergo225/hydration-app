@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
+import com.gergo225.hydrationapp.R
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 
@@ -16,31 +17,29 @@ class UserPreferences(private val context: Context) {
 
     companion object {
         val HYDRATION_GOAL_KEY = intPreferencesKey(name = "hydration_goal")
-        val CONTAINER_1_KEY = intPreferencesKey(name = "container1")
-        val CONTAINER_2_KEY = intPreferencesKey(name = "container2")
-        val CONTAINER_3_KEY = intPreferencesKey(name = "container3")
-
-        const val DEFAULT_GOAL = 2000
-        const val DEFAULT_CONTAINER1 = 200
-        const val DEFAULT_CONTAINER2 = 400
-        const val DEFAULT_CONTAINER3 = 500
+        val CONTAINER1_SIZE_KEY = intPreferencesKey(name = "container1_size")
+        val CONTAINER2_SIZE_KEY = intPreferencesKey(name = "container2_size")
+        val CONTAINER3_SIZE_KEY = intPreferencesKey(name = "container3_size")
     }
 
     val hydrationGoalLiveData: LiveData<Int> = context.dataStore.data.map { preferences ->
         preferences[HYDRATION_GOAL_KEY]
-            ?: DEFAULT_GOAL // default is 2000 (unless users sets a new value)
+            ?: context.resources.getInteger(R.integer.hydration_goal_default) // default is 2000 (unless users sets a new value)
     }.distinctUntilChanged().asLiveData()
 
     val container1LiveData: LiveData<Int> = context.dataStore.data.map { preferences ->
-        preferences[CONTAINER_1_KEY] ?: DEFAULT_CONTAINER1
+        preferences[CONTAINER1_SIZE_KEY]
+            ?: context.resources.getInteger(R.integer.container1_size_default)
     }.distinctUntilChanged().asLiveData()
 
     val container2LiveData: LiveData<Int> = context.dataStore.data.map { preferences ->
-        preferences[CONTAINER_2_KEY] ?: DEFAULT_CONTAINER2
+        preferences[CONTAINER2_SIZE_KEY]
+            ?: context.resources.getInteger(R.integer.container2_size_default)
     }.distinctUntilChanged().asLiveData()
 
     val container3LiveData: LiveData<Int> = context.dataStore.data.map { preferences ->
-        preferences[CONTAINER_3_KEY] ?: DEFAULT_CONTAINER3
+        preferences[CONTAINER3_SIZE_KEY]
+            ?: context.resources.getInteger(R.integer.container3_size_default)
     }.distinctUntilChanged().asLiveData()
 
 
@@ -52,19 +51,19 @@ class UserPreferences(private val context: Context) {
 
     suspend fun updateContainer1(newAmount: Int) {
         context.dataStore.edit { preferences ->
-            preferences[CONTAINER_1_KEY] = newAmount
+            preferences[CONTAINER1_SIZE_KEY] = newAmount
         }
     }
 
     suspend fun updateContainer2(newAmount: Int) {
         context.dataStore.edit { preferences ->
-            preferences[CONTAINER_2_KEY] = newAmount
+            preferences[CONTAINER2_SIZE_KEY] = newAmount
         }
     }
 
     suspend fun updateContainer3(newAmount: Int) {
         context.dataStore.edit { preferences ->
-            preferences[CONTAINER_3_KEY] = newAmount
+            preferences[CONTAINER3_SIZE_KEY] = newAmount
         }
     }
 

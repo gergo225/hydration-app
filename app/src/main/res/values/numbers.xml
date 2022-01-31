@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="hydration_goal_default">2000</integer>
+    <integer name="container1_size_default">200</integer>
+    <integer name="container2_size_default">400</integer>
+    <integer name="container3_size_default">500</integer>
+
+</resources>

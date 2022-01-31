@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.gergo225.hydrationapp.databinding.FragmentHomeBinding
 import com.gergo225.hydrationapp.repository.database.HydrationDatabase
+import com.gergo225.hydrationapp.repository.preferences.UserPreferences
 
 class HomeFragment : Fragment() {
 
@@ -25,7 +26,8 @@ class HomeFragment : Fragment() {
     ): View? {
         val application = requireNotNull(this.activity).application
         val dao = HydrationDatabase.getInstance(application).hydrationDatabaseDao
-        val homeViewModelFactory = HomeViewModelFactory(dao)
+        val userPreferences = UserPreferences(application)
+        val homeViewModelFactory = HomeViewModelFactory(dao, userPreferences)
         homeViewModel =
             ViewModelProvider(this, homeViewModelFactory).get(HomeViewModel::class.java)
 

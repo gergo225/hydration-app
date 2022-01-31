@@ -4,10 +4,11 @@ import android.text.format.DateUtils
 import androidx.lifecycle.*
 import com.gergo225.hydrationapp.repository.database.DailyHydration
 import com.gergo225.hydrationapp.repository.database.HydrationDatabaseDao
+import com.gergo225.hydrationapp.repository.preferences.UserPreferences
 import kotlinx.coroutines.launch
-import java.util.*
 
-class HomeViewModel(val database: HydrationDatabaseDao) : ViewModel() {
+class HomeViewModel(val database: HydrationDatabaseDao, preferences: UserPreferences) :
+    ViewModel() {
 
     private val _addHydrationAmount1 = MutableLiveData<Int>()
     val addHydrationAmount1: LiveData<Int>
@@ -21,9 +22,7 @@ class HomeViewModel(val database: HydrationDatabaseDao) : ViewModel() {
     val addHydrationAmount3: LiveData<Int>
         get() = _addHydrationAmount3
 
-    private val _hydrationGoal = MutableLiveData<Int>()
-    val hydrationGoal: LiveData<Int>
-        get() = _hydrationGoal
+    val hydrationGoal = preferences.hydrationGoalLiveData
 
     private val dailyHydration = MutableLiveData<DailyHydration>()
 
@@ -37,7 +36,6 @@ class HomeViewModel(val database: HydrationDatabaseDao) : ViewModel() {
         _addHydrationAmount1.value = 200
         _addHydrationAmount2.value = 400
         _addHydrationAmount3.value = 500
-        _hydrationGoal.value = 2000
         initializeDailyHydration()
     }
 

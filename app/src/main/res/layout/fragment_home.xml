@@ -84,7 +84,7 @@
             app:layout_constraintTop_toBottomOf="@id/glass_image">
 
             <Button
-                android:id="@+id/add_hydration_button1"
+                android:id="@+id/container1_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/add_hydration_horizontal_margin"
@@ -96,12 +96,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/add_hydration_button2"
+                app:layout_constraintRight_toLeftOf="@id/container2_button"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="200 ml" />
 
             <Button
-                android:id="@+id/add_hydration_button2"
+                android:id="@+id/container2_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/green"
@@ -110,13 +110,13 @@
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/add_hydration_button1"
-                app:layout_constraintRight_toLeftOf="@id/add_hydration_button3"
+                app:layout_constraintLeft_toRightOf="@id/container1_button"
+                app:layout_constraintRight_toLeftOf="@id/container3_button"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="400 ml" />
 
             <Button
-                android:id="@+id/add_hydration_button3"
+                android:id="@+id/container3_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/add_hydration_horizontal_margin"
@@ -126,7 +126,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/add_hydration_button2"
+                app:layout_constraintLeft_toRightOf="@id/container2_button"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="500 ml" />

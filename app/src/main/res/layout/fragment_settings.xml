@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="settingsViewModel"
+            type="com.gergo225.hydrationapp.ui.settings.SettingsViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.settings.SettingsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/daily_goal_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_top_margin"
+            android:background="@color/light_black"
+            android:padding="@dimen/settings_row_padding"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/daily_goal"
+                android:textColor="@color/white"
+                android:textSize="@dimen/body_font_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/ml_suffix(settingsViewModel.hydrationGoal)}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/body_font_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2000 ml" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/containers_group_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/settings_row_padding"
+            android:layout_marginTop="@dimen/containers_group_top_margin"
+            android:paddingBottom="6dp"
+            android:text="@string/containers_group_text"
+            android:textColor="@color/light_grey"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/daily_goal_row" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container1_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_black"
+            android:padding="@dimen/settings_row_padding"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containers_group_label">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/container_1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/body_font_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/ml_suffix(settingsViewModel.container1Size)}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/body_font_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="200 ml" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container2_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_black"
+            android:padding="@dimen/settings_row_padding"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container1_row">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/container_2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/body_font_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/ml_suffix(settingsViewModel.container2Size)}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/body_font_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="400 ml" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container3_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_black"
+            android:padding="@dimen/settings_row_padding"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container2_row">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/container_3"
+                android:textColor="@color/white"
+                android:textSize="@dimen/body_font_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/ml_suffix(settingsViewModel.container3Size)}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/body_font_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="500 ml" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/settings_row_padding"
+            android:layout_marginTop="8dp"
+            android:text="@string/settings_containers_help"
+            android:textColor="@color/light_grey"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container3_row" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

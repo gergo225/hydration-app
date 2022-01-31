@@ -2,6 +2,8 @@
     <string name="app_name">Hydration App</string>
     <string name="navigation_text_today">Today</string>
     <string name="title_history">History</string>
+
+    <!-- Home page -->
     <string name="title_home">Today\'s progress</string>
     <string name="glass_image_description">Outline of a glass</string>
     <string name="home_message">Happy you\'re back to track your healthy habit of staying hydrated.</string>
@@ -9,4 +11,17 @@
     <string name="ml_suffix">%d ml</string>
     <string name="percentage_suffix">%d%%</string>
     <string name="goal_format">of %d ml Goal</string>
+
+    <!-- History page -->
+    <string name="history_description">Here you can see your hydration data for the last 30 days</string>
+    <string name="checkmark_description">Green checkmark</string>
+
+    <!-- Settings page -->
+    <string name="containers_group_text">Containers</string>
+    <string name="settings_containers_help">These containers will appear on your main screen so you can easily tap on them and track your intake.</string>
+    <string name="title_settings">Settings</string>
+    <string name="daily_goal">Daily Goal</string>
+    <string name="container_1">Container 1</string>
+    <string name="container_2">Container 2</string>
+    <string name="container_3">Container 3</string>
 </resources>

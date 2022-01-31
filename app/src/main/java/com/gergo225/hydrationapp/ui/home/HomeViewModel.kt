@@ -10,17 +10,9 @@ import kotlinx.coroutines.launch
 class HomeViewModel(val database: HydrationDatabaseDao, preferences: UserPreferences) :
     ViewModel() {
 
-    private val _addHydrationAmount1 = MutableLiveData<Int>()
-    val addHydrationAmount1: LiveData<Int>
-        get() = _addHydrationAmount1
-
-    private val _addHydrationAmount2 = MutableLiveData<Int>()
-    val addHydrationAmount2: LiveData<Int>
-        get() = _addHydrationAmount2
-
-    private val _addHydrationAmount3 = MutableLiveData<Int>()
-    val addHydrationAmount3: LiveData<Int>
-        get() = _addHydrationAmount3
+    val addHydrationAmount1 = preferences.container1LiveData
+    val addHydrationAmount2 = preferences.container2LiveData
+    val addHydrationAmount3 = preferences.container3LiveData
 
     val hydrationGoal = preferences.hydrationGoalLiveData
 
@@ -33,9 +25,6 @@ class HomeViewModel(val database: HydrationDatabaseDao, preferences: UserPrefere
         Transformations.map(dailyHydration) { hydration -> Transformations.map(hydrationGoal) { goal -> hydration.hydrationMl * 100 / goal } }
 
     init {
-        _addHydrationAmount1.value = 200
-        _addHydrationAmount2.value = 400
-        _addHydrationAmount3.value = 500
         initializeDailyHydration()
     }
 

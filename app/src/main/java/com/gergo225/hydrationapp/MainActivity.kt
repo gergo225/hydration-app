@@ -34,16 +34,17 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.toolbarTitleText.text = destination.label
-            if (destination.id == R.id.navigation_settings) {
+
+            if (destination.id == R.id.navigation_home)
+                binding.settingsButton.visibility = View.VISIBLE
+            else
                 binding.settingsButton.visibility = View.GONE
-                navView.visibility = View.GONE
-            } else {
+
+            if (destination.id == R.id.navigation_home || destination.id == R.id.navigation_history)
                 navView.visibility = View.VISIBLE
-                if (destination.id == R.id.navigation_history)
-                    binding.settingsButton.visibility = View.GONE
-                else
-                    binding.settingsButton.visibility = View.VISIBLE
-            }
+            else
+                navView.visibility = View.GONE
+
         }
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

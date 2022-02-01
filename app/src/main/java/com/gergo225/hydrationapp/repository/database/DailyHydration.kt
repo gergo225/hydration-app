@@ -12,5 +12,5 @@ data class DailyHydration(
     @ColumnInfo(name = "hydration_ml")
     var hydrationMl: Int = 0,
     @ColumnInfo(name = "hydration_date")
-    val dayDate: Date = Date(System.currentTimeMillis())
+    var dayDate: Date = Date(System.currentTimeMillis())
 )

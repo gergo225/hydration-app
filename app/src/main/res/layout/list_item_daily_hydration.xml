@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dailyHydrationItem"
+            type="com.gergo225.hydrationapp.ui.history.DailyHydrationItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        tools:background="@color/black">
+
+        <TextView
+            android:id="@+id/daily_hydration_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/list_date_font_size"
+            app:hydrationDateFormatted="@{dailyHydrationItem}"
+            app:layout_constraintBottom_toTopOf="@id/daily_hydration_amount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Saturday, 1 January" />
+
+        <TextView
+            android:id="@+id/daily_hydration_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:hydrationAmountFormatted="@{dailyHydrationItem}"
+            app:layout_constraintBottom_toTopOf="@id/daily_hydration_percentage_of_goal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/daily_hydration_date"
+            tools:text="2000 ml" />
+
+        <TextView
+            android:id="@+id/daily_hydration_percentage_of_goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/list_percentage_font_size"
+            app:hydrationPercentageFormatted="@{dailyHydrationItem}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/daily_hydration_amount"
+            tools:text="100% out of 2000 ml Goal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/checkmark_description"
+            android:src="@drawable/ic_checkmark_goal"
+            app:hydrationGoalReached="@{dailyHydrationItem}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

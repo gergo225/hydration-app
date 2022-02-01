@@ -13,14 +13,11 @@ class HomeViewModel(val database: HydrationDatabaseDao, preferences: UserPrefere
     val addHydrationAmount1 = preferences.container1LiveData
     val addHydrationAmount2 = preferences.container2LiveData
     val addHydrationAmount3 = preferences.container3LiveData
-
     val hydrationGoal = preferences.hydrationGoalLiveData
 
     private val dailyHydration = MutableLiveData<DailyHydration>()
-
     val hydrationProgress =
         Transformations.map(dailyHydration) { dailyHydration -> dailyHydration.hydrationMl }
-
     val hydrationProgressPercentage =
         Transformations.map(dailyHydration) { hydration -> Transformations.map(hydrationGoal) { goal -> hydration.hydrationMl * 100 / goal } }
 

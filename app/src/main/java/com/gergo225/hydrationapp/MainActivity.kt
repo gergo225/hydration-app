@@ -1,15 +1,21 @@
 package com.gergo225.hydrationapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.gergo225.hydrationapp.databinding.ActivityMainBinding
+import com.gergo225.hydrationapp.repository.database.DailyHydration
+import com.gergo225.hydrationapp.repository.database.HydrationDatabase
 import com.gergo225.hydrationapp.ui.home.HomeFragmentDirections
+import kotlinx.coroutines.launch
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -62,10 +68,43 @@ class MainActivity : AppCompatActivity() {
                 mainViewModel.onSettingsEventCompleted()
             }
         }
+
+        createSampleData()
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.nav_host_fragment_activity_main).navigateUp()
+    }
+
+    private fun createSampleData() {
+        // TODO: Remove this later (only for testing)
+        val database = HydrationDatabase.getInstance(application).hydrationDatabaseDao
+        database.getLast30().observe(this) { hydrationList ->
+            val dataNumber = hydrationList.size
+            if (dataNumber in 1..29) {
+
+
+                val currDateMillis: Long = System.currentTimeMillis()
+                val oneDayMillis: Long = 24 * 60 * 60 * 1000
+
+                for (i in 2..45) {
+                    val hydration = DailyHydration()
+                    hydration.apply {
+                        hydrationMl = (1400..2300).random()
+                        dayDate = Date(currDateMillis - i * oneDayMillis)
+                    }
+
+                    Log.i(
+                        "MainActivity",
+                        "Hydration created for ${hydration.dayDate}, time: ${hydration.dayDate.time}"
+                    )
+
+                    lifecycleScope.launch {
+                        database.insert(hydration)
+                    }
+                }
+            }
+        }
     }
 
 }

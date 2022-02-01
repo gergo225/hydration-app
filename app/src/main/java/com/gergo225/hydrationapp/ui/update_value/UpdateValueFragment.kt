@@ -1,22 +1,51 @@
 package com.gergo225.hydrationapp.ui.update_value
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.gergo225.hydrationapp.R
+import android.view.inputmethod.EditorInfo
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.gergo225.hydrationapp.databinding.FragmentUpdateValueBinding
+import com.gergo225.hydrationapp.repository.preferences.UserPreferences
 
 class UpdateValueFragment : Fragment() {
 
-    private lateinit var viewModel: UpdateValueViewModel
+    private lateinit var _binding: FragmentUpdateValueBinding
+    private lateinit var updateValueViewModel: UpdateValueViewModel
+
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // TODO: Implement fragment
-        return inflater.inflate(R.layout.fragment_update_value, container, false)
+    ): View {
+        val arguments = UpdateValueFragmentArgs.fromBundle(requireArguments())
+        val application = requireNotNull(this.activity).application
+        val userPreferences = UserPreferences(application)
+        val viewModelFactory =
+            UpdateValueViewModelFactory(arguments.settingsOption, userPreferences)
+        updateValueViewModel =
+            ViewModelProvider(this, viewModelFactory).get(UpdateValueViewModel::class.java)
+
+        _binding = FragmentUpdateValueBinding.inflate(inflater, container, false)
+
+        binding.newValueEditText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE)
+                updateValueViewModel.onSubmitValue(Integer.parseInt(binding.newValueEditText.text.toString()))
+
+            true
+        }
+
+        updateValueViewModel.eventFinish.observe(viewLifecycleOwner) {
+            if (it) {
+                findNavController().popBackStack()
+                updateValueViewModel.onFinishEventCompleted()
+            }
+        }
+
+        return binding.root
     }
 }

@@ -32,10 +32,12 @@
 
 
         <EditText
+            android:id="@+id/new_value_edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edit_text_background"
             android:hint="@{Integer.toString(@integer/hydration_goal_default)}"
+            android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="numberDecimal"
             android:paddingHorizontal="12dp"

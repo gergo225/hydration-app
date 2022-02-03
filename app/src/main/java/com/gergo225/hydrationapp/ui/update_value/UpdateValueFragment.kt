@@ -46,6 +46,8 @@ class UpdateValueFragment : Fragment() {
             }
         }
 
+        binding.lifecycleOwner = this
+
         return binding.root
     }
 }

@@ -56,10 +56,8 @@ class HistoryFragment : Fragment() {
         historyViewModel.last30DaysHydrationItems.distinctUntilChanged()
             .observe(viewLifecycleOwner, Observer {
                 Log.i("HistoryFragment", "Last 30 days: $it")
-                setData()
-                it.let {
-                    adapter.submitList(it)
-                }
+                adapter.submitList(it)
+                setChartData(it)
             })
 
         binding.lifecycleOwner = this
@@ -105,14 +103,15 @@ class HistoryFragment : Fragment() {
 
     }
 
-    private fun setData() {
+    private fun setChartData(history: List<DailyHydrationItem>?) {
+        if (history == null) return
+
         val values = ArrayList<BarEntry>()
         val colors = ArrayList<Int>()
-        val goalValue = 2000
+        val goalValue = history.first().hydrationGoal
 
         // TODO: When less than 30 values -> set empty bars to fill remaining space
 
-        val history = historyViewModel.last30DaysHydrationItems.value ?: return
         for ((index, hydration) in history.withIndex()) {
             val amount = hydration.hydrationMl
             values.add(

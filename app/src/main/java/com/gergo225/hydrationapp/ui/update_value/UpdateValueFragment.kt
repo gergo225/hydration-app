@@ -32,9 +32,9 @@ class UpdateValueFragment : Fragment() {
 
         _binding = FragmentUpdateValueBinding.inflate(inflater, container, false)
 
-        binding.newValueEditText.setOnEditorActionListener { _, actionId, _ ->
+        binding.newValueEditText.setOnEditorActionListener { textView, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE)
-                updateValueViewModel.onSubmitValue(Integer.parseInt(binding.newValueEditText.text.toString()))
+                updateValueViewModel.onSubmitValue(Integer.parseInt(textView.text.toString()))
 
             true
         }

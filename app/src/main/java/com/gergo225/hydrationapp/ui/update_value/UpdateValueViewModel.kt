@@ -25,8 +25,6 @@ class UpdateValueViewModel(
             SettingsOption.CONTAINER2 -> updateContainer2(newValue)
             SettingsOption.CONTAINER3 -> updateContainer3(newValue)
         }
-
-        _eventFinish.value = true
     }
 
     fun onFinishEventCompleted() {
@@ -36,24 +34,28 @@ class UpdateValueViewModel(
     private fun updateHydration(newValue: Int) {
         viewModelScope.launch {
             preferences.updateHydrationGoal(newValue)
+            _eventFinish.value = true
         }
     }
 
     private fun updateContainer1(newValue: Int) {
         viewModelScope.launch {
             preferences.updateContainer1(newValue)
+            _eventFinish.value = true
         }
     }
 
     private fun updateContainer2(newValue: Int) {
         viewModelScope.launch {
             preferences.updateContainer2(newValue)
+            _eventFinish.value = true
         }
     }
 
     private fun updateContainer3(newValue: Int) {
         viewModelScope.launch {
             preferences.updateContainer3(newValue)
+            _eventFinish.value = true
         }
     }
 }

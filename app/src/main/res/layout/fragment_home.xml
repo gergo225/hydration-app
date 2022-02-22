@@ -20,13 +20,15 @@
         android:backgroundTintMode="multiply"
         tools:context=".ui.home.HomeFragment">
 
-        <ImageView
+        <com.gergo225.hydrationapp.ui.home.GlassView
             android:id="@+id/glass_image"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:contentDescription="@string/glass_image_description"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_glass_empty"
+            app:fillOpacity="0.6"
+            app:fillPercentage="@{homeViewModel.hydrationProgressPercentage}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHeight_default="percent"
             app:layout_constraintHeight_percent="0.35"
